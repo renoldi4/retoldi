@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Anagrafica </title>
+</head>
+
+<body style="background-color:#94c4c9;">
+
+    <h1 align="center"><span style="background-color: white;">Esercizio Anagrafica</span></h1>
+
+    <h3><font color="red">Ciao a tutti, 4^A INFORMATICA</font></h3>
+
+    <h3>Inserire il testo a piacimento sotto:</h3>
+
+    <script>
+        function stampa() {
+            var nome = document.getElementById("demo").value;
+            document.getElementById("dest").innerHTML = nome;
+
+            var cognome = document.getElementById("demo1").value;
+            document.getElementById("dest1").innerHTML = cognome;
+
+            var indirizzo = document.getElementById("demo2").value;
+            document.getElementById("dest2").innerHTML = indirizzo;
+
+            var passione = document.getElementById("demo3").value;
+            document.getElementById("dest3").innerHTML = passione;
+
+            var italiano = document.getElementById("Italiano");
+            var geografia = document.getElementById("Geografia");
+            var religione = document.getElementById("Religione");
+            var storia = document.getElementById("Storia");
+
+            document.getElementById("text").innerHTML = italiano.checked ? "Italiano" : "";
+            document.getElementById("text1").innerHTML = geografia.checked ? "Geografia" : "";
+            document.getElementById("text2").innerHTML = religione.checked ? "Religione" : "";
+            document.getElementById("text3").innerHTML = storia.checked ? "Storia" : "";
+
+            var primavera = document.getElementById("primavera");
+            var estate = document.getElementById("estate");
+            var inverno = document.getElementById("inverno");
+            var autunno = document.getElementById("autunno");
+
+            document.getElementById("stampaStagioni").innerHTML = (primavera.checked ? "primavera" : estate.checked ? "estate" : inverno.checked ? "inverno" : autunno.checked ? "autunno" : "");
+
+            var listBox = document.getElementById("myListBox");
+            var selectedValue = listBox.options[listBox.selectedIndex].value;
+            document.getElementById("selectedItem").innerHTML =String(selectedValue);
+        }
+    </script>
+
+    <p>Nome</p>
+    <input type="text" id="demo">
+    <p id="dest"></p>
+
+    <p>Cognome</p>
+    <input type="text" id="demo1">
+    <p id="dest1"></p>
+
+    <p>Indirizzo</p>
+    <input type="text" id="demo2">
+    <p id="dest2"></p>
+
+    <p>Passione</p>
+    <input type="text" id="demo3">
+    <p id="dest3"></p>
+
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+    <label for="myCheck">Italiano</label>
+    <input type="checkbox" id="Italiano">
+    <p id="text"></p>
+
+    <label for="myCheck">Geografia</label>
+    <input type="checkbox" id="Geografia">
+    <p id="text1"></p>
+
+    <label for="myCheck">Religione</label>
+    <input type="checkbox" id="Religione">
+    <p id="text2"></p>
+
+    <label for="myCheck">Storia:</label>
+    <input type="checkbox" id="Storia">
+    <p id="text3"></p>
+
+    <p>&nbsp;</p>
+
+    <input type="radio" id="primavera" name="fav_language" value="primavera">
+    <label for="html">primavera</label><br>
+
+    <input type="radio" id="estate" name="fav_language" value="estate">
+    <label for="css">estate</label><br>
+
+    <input type="radio" id="autunno" name="fav_language" value="autunno">
+    <label for="javascript">autunno</label><br>
+
+    <input type="radio" id="inverno" name="fav_language" value="inverno">
+    <label for="javascript">inverno</label><br>
+
+    <p id="stampaStagioni"></p>
+
+    <label for="myListBox">Seleziona il modello di telefono:</label>
+    <select id="myListBox">
+        <option value="Samsung">Samsung</option>
+        <option value="Iphone">Iphone</option>
+        <option value="Redmi">Redmi</option>
+    </select>
+    <p id="selectedItem"></p>
+
+    <p>&nbsp;</p>
+    <input type="button" value="Premi qui" onclick="stampa()">
+</body>
+
+</html>
