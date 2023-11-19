@@ -21,7 +21,8 @@
         #calculator {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            
+            grid-gap: 5px;
+            margin: 20px;
         }
 
         button {
@@ -32,7 +33,7 @@
             cursor: pointer;
             background-color: #5390a0;
             color: white;
-            width: 40px;
+            width: calc(25%-10px);
         }
 
         button:hover {
@@ -40,7 +41,7 @@
         }
 
         #display {
-            width: 180px
+            width: calc(100%-40px);
             padding: 10px;
             font-size: 18px;
             border: none;
