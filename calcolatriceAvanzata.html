@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <title>Calcolatrice avanzata</title>
     <style>
@@ -12,8 +12,8 @@
         }
 
         h1 {
+            display: inline-block;
             background-color: white;
-            margin-top: 20px;
             padding: 10px;
             border-radius: 10px;
         }
@@ -26,14 +26,14 @@
         }
 
         button {
-            padding: 10px;
-            font-size: 16px;
+            padding: 15px;
+            font-size: 18px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             background-color: #5390a0;
             color: white;
-            width: 40px;
+            width: 100%;
         }
 
         button:hover {
@@ -41,9 +41,9 @@
         }
 
         #display {
-            width: 180px;
+            width: calc(100% - 40px);
             padding: 10px;
-            font-size: 18px;
+            font-size: 20px;
             border: none;
             border-radius: 5px;
             margin: 10px;
@@ -84,8 +84,6 @@
     </div>
 
     <input type="text" id="display" readonly>
-
-
 
 
   <script>
