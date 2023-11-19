@@ -6,59 +6,90 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
+            background-color: #94c4c9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: white;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        #calculator {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 5px;
+            margin: 20px;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #5390a0;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #406772;
+        }
+
+        #display {
+            width: calc(100% - 40px);
+            padding: 10px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
         }
     </style>
 </head>
 
+<body>
+    <h1>Calcolatrice avanzata</h1>
 
+    <div id="calculator">
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('/')">/</button>
 
-    
-<body style="background-color:#94c4c9;">
-  <h1 align="center"><span style="background-color: white;">Calcolatrice avanzata</span></h1>
-    <p>&nbsp;</p>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('*')">*</button>
 
-  <div>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('-')">-</button>
+
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="appendToDisplay('+')">+</button>
+
+        <button onclick="calculateSquareRoot()">√</button>
+        <button onclick="calculateSquare()">**</button>
+        <button onclick="calculateInverse()">1/x</button>
+        <button onclick="clearDisplay()">C</button>
+
+        <button onclick="calculatePercentage()">%</button>
+    </div>
+
     <input type="text" id="display" readonly>
-  </div>
-  
-  <div>
-    <button onclick="appendToDisplay('1')">1</button>
-    <button onclick="appendToDisplay('2')">2</button>
-    <button onclick="appendToDisplay('3')">3</button>
-    <button onclick="appendToDisplay('/')">/</button>
-  </div>
 
-  <div>
-    <button onclick="appendToDisplay('4')">4</button>
-    <button onclick="appendToDisplay('5')">5</button>
-    <button onclick="appendToDisplay('6')">6</button>
-    <button onclick="appendToDisplay('*')">*</button>
-  </div>
+    <script>
+        // Resto del tuo script rimane invariato
+    </script>
 
-  <div>
-    <button onclick="appendToDisplay('7')">7</button>
-    <button onclick="appendToDisplay('8')">8</button>
-    <button onclick="appendToDisplay('9')">9</button>
-    <button onclick="appendToDisplay('-')">-</button>
-  </div>
-
-  <div>
-    <button onclick="appendToDisplay('0')">0</button>
-    <button onclick="appendToDisplay('.')">.</button>
-    <button onclick="calculate()">=</button>
-    <button onclick="appendToDisplay('+')">+</button>
-  </div>
-
-  <div>
-    <button onclick="calculateSquareRoot()">√</button>
-    <button onclick="calculateSquare()">**</button>
-    <button onclick="calculateInverse()">1/x</button>
-    <button onclick="clearDisplay()">C</button>
-  </div>
-
-  <div>
-    <button onclick="calculatePercentage()">%</button>
-  </div>
+</body>
+</html>
 
   <script>
     function appendToDisplay(value) {
