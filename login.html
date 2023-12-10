@@ -1,4 +1,33 @@
-let dominio = [".com", ".it", ".edu.it"];
+<!DOCTYPE html>
+<head>
+    <title>Login</title>
+</head>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
+    <h1>Login</h1>
+    
+    <form onsubmit="controllo(); return false;">
+        <label for="user">Email:</label>
+        <input type="text" id="user" name="user" required autofocus>
+        <br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        
+        <input type="submit" value="Invia">
+    </form>
+
+    <div id="esito" style="display: none;">
+        <p id="testoEsito"></p>
+    </div>
+
+    <script>
+        let dominio = [".com", ".it", ".edu.it"];
 
 let caratteriSpeciali = ["&", "%", "!", "(", ")", "?", "^", "+", "[", "]", ".", ",", "_"];
 
@@ -156,3 +185,6 @@ function controlloPassword() {
         alert("Inserire una password");
     }
 }
+    </script>
+</body>
+</html>
