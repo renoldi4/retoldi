@@ -91,11 +91,7 @@
     </div>
 
     <script>
-        let dominio = [".com", ".it", ".edu.it"];
-
-let caratteriSpeciali = ["&", "%", "!", "(", ")", "?", "^", "+", "[", "]", ".", ",", "_"];
-
-function controllo() {
+        function controllo() {
 
     let esito = document.getElementById("esito");
     
@@ -121,132 +117,31 @@ function controlloUser() {
 
     let username = document.getElementById("user").value;
 
-    if(username.includes('@') && username.indexOf("@") != 0) {
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        for(let i = 0; i < username.indexOf("@"); i++) {
+    if (pattern.test(username)) {
 
-            if((username.charCodeAt(i) > 48 && username.charCodeAt(i) < 57) || (username.charCodeAt(i) > 65 && username.charCodeAt(i) <= 122) || username.charCodeAt(i) == 46) {
-                
-                continue;
+      return true;
 
-            } else {
+    } else {
 
-                alert("Carattere vietato");
-
-                return false;
-            }
-        }
-
-        let dominioM = username.substring(username.indexOf(".", username.indexOf("@")));
-
-        if(dominio.includes(dominioM) && (username.indexOf("@") - username.indexOf(".", username.indexOf("@"))) != -1) {
-
-            for(let i = username.indexOf("@") + 1; i < username.indexOf(".", username.indexOf("@")); i++) {
-
-                if((username.charCodeAt(i) >= 48 && username.charCodeAt(i) <= 57) || (username.charCodeAt(i) >= 97 && username.charCodeAt(i) <= 122) || username.charCodeAt(i) == 46) {
-                
-                    continue;
-    
-                } else {
-    
-                    alert("Errore: hai insetito un carattere vietato");
-    
-                    return false;
-                }
-            }
-
-            return true;
-
-        } else {
-
-            alert("Errore: dominio non riconosciuto");
-
-            return false;
-        }
+      return false;
     }
-
-    alert("Utente non valido");
-    
-    return false;
 }
 
 function controlloPassword() {
 
     let password = document.getElementById("password").value;
 
-    let controlloUp = false;
+    const pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
 
-    let controlloNumero = false;
+    if (pattern.test(password)) {
 
-    let controlloCS = false;
-
-    if(password.length != 0) {
-
-        if(password.length >= 8) {
-
-            for(let i = 0; i < password.length; i++) {
-
-                if((password.charCodeAt(i) >= 65 && password.charCodeAt(i) <= 90) || (password.charCodeAt(i) >= 48 && password.charCodeAt(i) <= 57) || (password.charCodeAt(i) >= 97 && password.charCodeAt(i) <= 122) || caratteriSpeciali.includes(password.charAt(i))) {
-
-                    if(password.charAt(i) == password.charAt(i).toUpperCase()) {
-    
-                        controlloUp = true;
-                    }
-        
-                    if(["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"].includes(password.charAt(i))) {
-        
-                        controlloNumero = true;
-                    }
-    
-                    if(caratteriSpeciali.includes(password.charAt(i))) {
-    
-                        controlloCS = true;
-                    }
-
-                } else {
-                    
-                    alert("Hai inserito un carattere non valido");
-
-                    return false;
-
-                }
-            }
-    
-            if(controlloUp) {
-
-                if(!controlloNumero) {
-
-                    alert("La password deve contenere almeno un numero");
-    
-                    return false;
-                }
-                
-                if(!controlloCS) {
-
-                    alert("La password deve contenere almeno un carattere speciale");
-    
-                    return false;
-                }
-    
-                return true;
-    
-            } else {
-    
-                alert("La password deve contenere almeno una lettera maiuscola");
-    
-                return false;
-            }
-        
-        } else {
-    
-            alert("La password deve contenere almeno 8 caratteri");
-    
-            return false;
-        }
+       return true;
 
     } else {
 
-        alert("Inserire una password");
+        return false;
     }
 }
     </script>
