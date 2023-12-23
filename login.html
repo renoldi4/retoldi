@@ -91,27 +91,30 @@
     </div>
 
     <script>
-        function controllo() {
-
-    let esito = document.getElementById("esito");
-    
-    let ris = document.getElementById("testoEsito");
-
-    esito.style.display = "block";
-
-    if(controlloUser() && controlloPassword()) {
-
-        esito.style.backgroundColor = "rgba(0, 172, 0, 0.607)";
-
-        ris.innerHTML = "Accesso consentito";
-
-    } else {
-
-        esito.style.backgroundColor = "rgba(255, 0, 0, 0.585)";
-
-        ris.innerHTML = "Accesso negato";
+    function controllo() {
+        if (controlloUser() && controlloPassword()) {
+            // Accesso consentito
+            window.location.href = 'pagina_di_destinazione.html';
+        } else {
+            // Accesso negato
+            mostraEsito(false);
+        }
     }
-}
+
+    function mostraEsito(accessoConsentito) {
+        let esito = document.getElementById("esito");
+        let ris = document.getElementById("testoEsito");
+
+        esito.style.display = "block";
+
+        if (accessoConsentito) {
+            esito.style.backgroundColor = "rgba(0, 172, 0, 0.607)";
+            ris.innerHTML = "Accesso consentito";
+        } else {
+            esito.style.backgroundColor = "rgba(255, 0, 0, 0.585)";
+            ris.innerHTML = "Accesso negato";
+        }
+    }
 
 function controlloUser() {
 
