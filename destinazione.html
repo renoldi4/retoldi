@@ -1,0 +1,62 @@
+<script>
+    function controllo() {
+        if (controlloUser() && controlloPassword()) {
+            // Accesso consentito
+            window.location.href = 'pagina_di_destinazione.html';
+        } else {
+            // Accesso negato
+            mostraEsito(false);
+        }
+    }
+
+    function mostraEsito(accessoConsentito) {
+        let esito = document.getElementById("esito");
+        let ris = document.getElementById("testoEsito");
+
+        esito.style.display = "block";
+
+        if (accessoConsentito) {
+            esito.style.backgroundColor = "rgba(0, 172, 0, 0.607)";
+            ris.innerHTML = "Accesso consentito";
+        } else {
+            esito.style.backgroundColor = "rgba(255, 0, 0, 0.585)";
+            ris.innerHTML = "Accesso negato";
+        }
+    }
+</script>
+Nel caso di accesso consentito, la pagina verrà cambiata utilizzando window.location.href. Modifica l'URL 'pagina_di_destinazione.html' con l'URL effettivo della tua pagina di destinazione.
+
+Utente
+scrivi anche il codice per la pagina di reindirizzamento
+ChatGPT (Chat S.p.
+Ecco un esempio di codice per una pagina di destinazione chiamata 'pagina_di_destinaz
+
+html
+Copy code
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pagina di Destinazione</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #94c4c9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Benvenuto nella Pagina di Destinazione!</h1>
+</body>
+</html>
