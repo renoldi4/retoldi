@@ -92,11 +92,9 @@
 
     <script>
     function controllo() {
-        if (controlloUser() && controlloPassword()) {
-            // Accesso consentito
-            window.location.href = 'pagina_di_destinazione.html';
+        if (controlloUser() && controlloPassword()) 
+            window.location.href = 'destinazione.html';
         } else {
-            // Accesso negato
             mostraEsito(false);
         }
     }
