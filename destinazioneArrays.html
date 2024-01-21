@@ -1,15 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destinazione</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        input, button {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
 
     <div id="infoPersona"></div>
 
-
+<h2>Informazioni sulla Persona:</h2>
     <script>
         document.getElementById("infoPersona").innerHTML = localStorage.getItem("dati");
     </script>
