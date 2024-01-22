@@ -5,17 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM</title>
      <style>
-        #testo div,
-        #testo1 div,
-        #testo2 div {
-            border-radius: 10px; 
-            padding: 10px; 
-            margin: 10px auto; 
-            max-width: 300px;
-            background-color: white; 
-            border: 1px solid black;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        input {
+            border-radius: 5px; /* rende le forme stondate per gli input */
+            padding: 8px; /* aggiunge spazio interno agli input */
+            margin-bottom: 10px; /* aggiunge spazio tra gli input */
+        }
+
+        button {
+            border-radius: 5px; /* rende le forme stondate per il pulsante */
+            padding: 8px; /* aggiunge spazio interno al pulsante */
+            margin-bottom: 10px; /* aggiunge spazio tra il pulsante e gli input */
         }
     </style>
+
 </head>
 <body style="background-color:#94c4c9;">
     <input type="text" width="70" id="ins1"><br>
