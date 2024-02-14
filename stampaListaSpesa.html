@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stampa ListaSpesa</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        #Array {
+            overflow-y: auto;
+            max-height: 200px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body style="background-color:#94c4c9;">
+
+
+    <div id="Array"></div>
+
+    <script>
+        function rimuoviElemento(index) {
+            var arrayDati = JSON.parse(localStorage.getItem("listaSpesa_stampaInfo"));
+
+            if (arrayDati && arrayDati.length > 0) {
+                arrayDati.splice(index, 1);
+                localStorage.setItem("listaSpesa_stampaInfo", JSON.stringify(arrayDati));
+                mostraListaSpesa();
+            } else {
+                console.error("Nessuna informazione da visualizzare.");
+            }
+        }
+
+        function mostraListaSpesa() {
+            var arrayDati = JSON.parse(localStorage.getItem("listaSpesa_stampaInfo"));
+            var listaHtml = "";
+
+            if (arrayDati && arrayDati.length > 0) {
+                listaHtml = "<p>La tua lista della spesa:</p><ul>";
+                for (var i = 0; i < arrayDati.length; i++) {
+                    listaHtml += "<li>" + arrayDati[i] + " <button onclick=\"rimuoviElemento(" + i + ")\">X</button></li>";
+                }
+                listaHtml += "</ul>";
+            } else {
+                listaHtml = "<p>Nessun elemento nella lista della spesa.</p>";
+            }
+
+            document.getElementById("Array").innerHTML = listaHtml;
+        }
+
+        mostraListaSpesa();
+    </script>
+</body>
+</html>

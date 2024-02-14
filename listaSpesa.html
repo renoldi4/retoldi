@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista della spesa</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        p, input, button {
+            margin: 5px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body style="background-color:#94c4c9;">
+
+    <p>Aggiungi alimento</p>
+    <input type="text" id="informazioni">
+    <button onclick="LocalSt()">Invia</button>
+    <button onclick="stampa()">Stampa</button>
+
+    <script> 
+        function LocalSt(){
+            var informazioni = document.getElementById("informazioni").value;
+
+            if (typeof(Storage) !== "undefined") {
+                var arrayDati = JSON.parse(localStorage.getItem("listaSpesa_dati")) || [];
+                arrayDati.push(informazioni);
+                localStorage.setItem("listaSpesa_dati", JSON.stringify(arrayDati));
+            } else {
+                console.error("Il browser non supporta lo storage");
+            }
+        }
+
+        function stampa() {
+            var arrayDati = JSON.parse(localStorage.getItem("listaSpesa_dati"));
+
+            if (arrayDati && arrayDati.length > 0) {
+                localStorage.setItem("listaSpesa_stampaInfo", JSON.stringify(arrayDati));
+                window.location.href = "stampaListaSpesa.html";
+            } else {
+                console.error("Nessuna informazione da stampare.");
+            }
+        }
+    </script>
+
+</body>
+</html>
+
