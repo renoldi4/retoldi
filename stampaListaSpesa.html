@@ -35,16 +35,16 @@
 </head>
 <body style="background-color:#94c4c9;">
 
-
     <div id="Array"></div>
 
     <script>
         function rimuoviElemento(index) {
-            var arrayDati = JSON.parse(localStorage.getItem("listaSpesa_stampaInfo"));
+            var arrayDatiString = sessionStorage.getItem("listaSpesa_stampaInfo");
+            var arrayDati = arrayDatiString ? arrayDatiString.split(",") : [];
 
-            if (arrayDati && arrayDati.length > 0) {
+            if (arrayDati.length > 0) {
                 arrayDati.splice(index, 1);
-                localStorage.setItem("listaSpesa_stampaInfo", JSON.stringify(arrayDati));
+                sessionStorage.setItem("listaSpesa_stampaInfo", arrayDati.join(","));
                 mostraListaSpesa();
             } else {
                 console.error("Nessuna informazione da visualizzare.");
@@ -52,10 +52,11 @@
         }
 
         function mostraListaSpesa() {
-            var arrayDati = JSON.parse(localStorage.getItem("listaSpesa_stampaInfo"));
+            var arrayDatiString = sessionStorage.getItem("listaSpesa_stampaInfo");
+            var arrayDati = arrayDatiString ? arrayDatiString.split(",") : [];
             var listaHtml = "";
 
-            if (arrayDati && arrayDati.length > 0) {
+            if (arrayDati.length > 0) {
                 listaHtml = "<p>La tua lista della spesa:</p><ul>";
                 for (var i = 0; i < arrayDati.length; i++) {
                     listaHtml += "<li>" + arrayDati[i] + " <button onclick=\"rimuoviElemento(" + i + ")\">X</button></li>";
