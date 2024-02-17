@@ -33,27 +33,32 @@
 
     <p>Aggiungi alimento</p>
     <input type="text" id="informazioni">
-    <button onclick="LocalSt()">Invia</button>
+    <button onclick="aggiungiAlimento()">Invia</button>
     <button onclick="stampa()">Stampa</button>
 
     <script> 
-        function LocalSt(){
+        function aggiungiAlimento(){
             var informazioni = document.getElementById("informazioni").value;
 
             if (typeof(Storage) !== "undefined") {
-                var arrayDati = JSON.parse(localStorage.getItem("listaSpesa_dati")) || [];
+                var arrayDati = sessionStorage.getItem("listaSpesa_dati");
+                if (!arrayDati) {
+                    arrayDati = [];
+                } else {
+                    arrayDati = arrayDati.split(",");
+                }
                 arrayDati.push(informazioni);
-                localStorage.setItem("listaSpesa_dati", JSON.stringify(arrayDati));
+                sessionStorage.setItem("listaSpesa_dati", arrayDati.join(","));
             } else {
-                console.error("Il browser non supporta lo storage");
+                console.error("Il browser non supporta sessionStorage");
             }
         }
 
         function stampa() {
-            var arrayDati = JSON.parse(localStorage.getItem("listaSpesa_dati"));
+            var arrayDati = sessionStorage.getItem("listaSpesa_dati");
 
             if (arrayDati && arrayDati.length > 0) {
-                localStorage.setItem("listaSpesa_stampaInfo", JSON.stringify(arrayDati));
+                sessionStorage.setItem("listaSpesa_stampaInfo", arrayDati);
                 window.location.href = "stampaListaSpesa.html";
             } else {
                 console.error("Nessuna informazione da stampare.");
@@ -63,4 +68,3 @@
 
 </body>
 </html>
-
