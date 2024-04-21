@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Temperatura Media</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div id="tableContainer"></div>
+
+    <script>
+       function readFile(input) {
+    let file = input.files[0];
+    let fileReader = new FileReader();
+    fileReader.readAsText(file);
+    fileReader.onload = function() {
+        var str = fileReader.result;
+        
+        // Creazione della tabella 
+        let table = '<table class="table table-striped">';
+        
+        // Dividi il file CSV per righe
+        let rows = str.split('\n');
+        
+        // Crea l'intestazione della tabella
+        table += '<thead><tr>';
+        let headers = rows[0].split(',');
+        for (let header of headers) {
+            table += '<th>' + header + '</th>';
+        }
+        table += '</tr></thead>';
+        
+        // Crea il corpo della tabella
+        table += '<tbody>';
+        for (let i = 1; i < rows.length; i++) {
+            let cells = rows[i].split(',');
+            table += '<tr>';
+            for (let cell of cells) {
+                table += '<td>' + cell + '</td>';
+            }
+            table += '</tr>';
+        }
+        table += '</tbody></table>';
+        
+        // Inserimento della tabella nel documento HTML
+        document.getElementById('tableContainer').innerHTML = table;
+    };
+}
+    </script>
+
+    <input type="file" onchange="readFile(this)">
+    
+</body>
+</html>
