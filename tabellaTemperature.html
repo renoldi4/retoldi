@@ -7,24 +7,23 @@
 </head>
 <body style="background-color:#94c4c9;">
 
-
     <div id="tableContainer"></div>
 
     <script>
        function readFile(input) {
-    let file = input.files[0];
-    let fileReader = new FileReader();
-    fileReader.readAsText(file);
-    fileReader.onload = function() {
+        let file = input.files[0];
+        let fileReader = new FileReader();
+        fileReader.readAsText(file);
+        fileReader.onload = function() {
         var str = fileReader.result;
         
         // Creazione della tabella 
         let table = '<table class="table table-striped">';
         
-        // Dividi il file CSV per righe
+        // Dividi per righe
         let rows = str.split('\n');
         
-        // Crea l'intestazione della tabella
+        // Creazione dell'intestazione
         table += '<thead><tr>';
         let headers = rows[0].split(',');
         for (let header of headers) {
@@ -32,7 +31,7 @@
         }
         table += '</tr></thead>';
         
-        // Crea il corpo della tabella
+        // Creazione del corpo 
         table += '<tbody>';
         for (let i = 1; i < rows.length; i++) {
             let cells = rows[i].split(',');
@@ -44,7 +43,6 @@
         }
         table += '</tbody></table>';
         
-        // Inserimento della tabella nel documento HTML
         document.getElementById('tableContainer').innerHTML = table;
     };
 }
